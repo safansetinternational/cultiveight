@@ -36,7 +36,12 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center space-x-2">
-            <Sprout className="h-8 w-8 text-green-600" />
+             <Image
+                src="/cultilogo.jpg?height=600&width=600"
+                alt="Cultiveight farming operations"
+                width={80}
+                height={20}
+              />
             <div>
               <h1 className="text-xl font-bold text-green-800">CULTIVEIGHT</h1>
               <p className="text-xs text-green-600">(PRIVATE) LIMITED</p>
@@ -94,7 +99,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/grrr.jpg?height=600&width=600"
                 alt="Cultiveight farming operations"
                 width={600}
                 height={600}
@@ -343,7 +348,7 @@ export default function HomePage() {
               </div>
               <div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/green.jpg?height=400&width=600"
                   alt="Tillage services"
                   width={600}
                   height={400}
@@ -389,7 +394,7 @@ export default function HomePage() {
               </div>
               <div className="lg:order-1">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/red.jpg?height=400&width=600"
                   alt="Animal husbandry"
                   width={600}
                   height={400}
@@ -428,7 +433,7 @@ export default function HomePage() {
               </div>
               <div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/green.jpg?height=400&width=600"
                   alt="Horticulture crops"
                   width={600}
                   height={400}
@@ -467,7 +472,7 @@ export default function HomePage() {
               </div>
               <div className="lg:order-1">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/mountain.jpg?height=400&width=600"
                   alt="Crop farming"
                   width={600}
                   height={400}
