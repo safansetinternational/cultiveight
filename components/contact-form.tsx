@@ -1,0 +1,157 @@
+"use client";
+
+import { useEffect, useState, useTransition } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
+
+const initialState: ContactFormState = {};
+
+export default function ContactForm() {
+  const [state, setState] = useState<ContactFormState>(initialState);
+  const [isPending, startTransition] = useTransition();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    
+    startTransition(async () => {
+      try {
+        const result = await submitContactForm(formData);
+        setState(result);
+      } catch (error) {
+        setState({
+          success: false,
+          message: "An error occurred while submitting the form",
+          errors: {}
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (state.success) {
+      const form = document.getElementById("contact-form") as HTMLFormElement;
+      if (form) {
+        form.reset();
+      }
+    }
+  }, [state.success]);
+
+  return (
+    <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
+      {state.message && (
+        <Alert className={state.success ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}>
+          {state.success ? (
+            <CheckCircle className="h-4 w-4 text-green-600" />
+          ) : (
+            <AlertCircle className="h-4 w-4 text-red-600" />
+          )}
+          <AlertDescription className={state.success ? "text-green-800" : "text-red-800"}>
+            {state.message}
+          </AlertDescription>
+        </Alert>
+      )}
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="firstName">First Name</Label>
+          <Input
+            id="firstName"
+            name="firstName"
+            type="text"
+            placeholder="John"
+            disabled={isPending}
+            className={state.errors?.firstName ? "border-red-500" : ""}
+          />
+          {state.errors?.firstName && <p className="text-sm text-red-600">{state.errors.firstName[0]}</p>}
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="lastName">Last Name</Label>
+          <Input
+            id="lastName"
+            name="lastName"
+            type="text"
+            placeholder="Doe"
+            disabled={isPending}
+            className={state.errors?.lastName ? "border-red-500" : ""}
+          />
+          {state.errors?.lastName && <p className="text-sm text-red-600">{state.errors.lastName[0]}</p>}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="john@example.com"
+          disabled={isPending}
+          className={state.errors?.email ? "border-red-500" : ""}
+        />
+        {state.errors?.email && <p className="text-sm text-red-600">{state.errors.email[0]}</p>}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="phone">Phone</Label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+263 xxx xxx xxx"
+          disabled={isPending}
+          className={state.errors?.phone ? "border-red-500" : ""}
+        />
+        {state.errors?.phone && <p className="text-sm text-red-600">{state.errors.phone[0]}</p>}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="service">Service Needed</Label>
+        <Select name="service" disabled={isPending}>
+          <SelectTrigger className={state.errors?.service ? "border-red-500" : ""}>
+            <SelectValue placeholder="Select a service" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="tillage">Tillage Services</SelectItem>
+            <SelectItem value="livestock">Livestock Supply</SelectItem>
+            <SelectItem value="crop-management">Crop Management Consulting</SelectItem>
+            <SelectItem value="contract-growing">Contract Growing</SelectItem>
+            <SelectItem value="mechanization">Farm Mechanization Leasing</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectContent>
+        </Select>
+        {state.errors?.service && <p className="text-sm text-red-600">{state.errors.service[0]}</p>}
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea
+          id="message"
+          name="message"
+          rows={4}
+          placeholder="Tell us about your farming needs..."
+          disabled={isPending}
+          className={state.errors?.message ? "border-red-500" : ""}
+        />
+        {state.errors?.message && <p className="text-sm text-red-600">{state.errors.message[0]}</p>}
+      </div>
+
+      <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={isPending}>
+        {isPending ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Sending Message...
+          </>
+        ) : (
+          "Send Message"
+        )}
+      </Button>
+    </form>
+  );
+}
