@@ -9,12 +9,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calculator, DollarSign } from "lucide-react"
 
 const serviceRates = {
-  ploughing: 45,
-  discing: 35,
-  planting: 40,
-  spraying: 25,
-  harvesting: 60,
-  fertilizer: 30,
+  ploughing: 130,
+  discing: 90,
+  planting: 90,
+  spraying: 35,
+  harvesting: 130,
+  fertilizer: 35,
 }
 
 export default function ServiceCalculator() {
@@ -46,7 +46,7 @@ export default function ServiceCalculator() {
           <Calculator className="h-5 w-5 text-green-600" />
           Service Cost Calculator
         </CardTitle>
-        <CardDescription>Get an instant estimate for our tillage services</CardDescription>
+        <CardDescription>Get an instant estimate for our tillage services based on Wet rate</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
@@ -69,12 +69,12 @@ export default function ServiceCalculator() {
               <SelectValue placeholder="Select service" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="ploughing">Ploughing ($45/ha)</SelectItem>
-              <SelectItem value="discing">Discing ($35/ha)</SelectItem>
-              <SelectItem value="planting">Precision Planting ($40/ha)</SelectItem>
-              <SelectItem value="spraying">Boom Spraying ($25/ha)</SelectItem>
-              <SelectItem value="harvesting">Harvesting ($60/ha)</SelectItem>
-              <SelectItem value="fertilizer">Fertilizer Spreading ($30/ha)</SelectItem>
+              <SelectItem value="ploughing">Ploughing ($130/ha)</SelectItem>
+              <SelectItem value="discing">Discing ($90/ha)</SelectItem>
+              <SelectItem value="planting">Precision Planting ($90/ha)</SelectItem>
+              <SelectItem value="spraying">Boom Spraying ($35/ha)</SelectItem>
+              <SelectItem value="harvesting">Harvesting ($130/ha)</SelectItem>
+              <SelectItem value="fertilizer">Fertilizer Spreading ($35/ha)</SelectItem>
             </SelectContent>
           </Select>
         </div>

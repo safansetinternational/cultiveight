@@ -61,7 +61,9 @@ export default function HomePage() {
               Contact
             </Link>
           </nav>
+          <Link href="#services">
           <Button className="bg-green-600 hover:bg-green-700">Get Quote</Button>
+          </Link>
         </div>
       </header>
 
@@ -87,6 +89,7 @@ export default function HomePage() {
                   Explore Services
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
+                <Link href="#contact">
                 <Button
                   size="lg"
                   variant="outline"
@@ -94,6 +97,7 @@ export default function HomePage() {
                 >
                   Contact Us
                 </Button>
+                </Link>
               </div>
               <InteractiveStats />
             </div>
@@ -429,6 +433,10 @@ export default function HomePage() {
                     <CheckCircle className="h-4 w-4 text-green-600" />
                     <span className="text-sm">Cabbages</span>
                   </div>
+                    <div className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm">Onions</span>
+                  </div>
                 </div>
               </div>
               <div>
@@ -467,6 +475,10 @@ export default function HomePage() {
                   <div className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
                     <span className="text-sm">Wheat</span>
+                  </div>
+                   <div className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm">Tobacco</span>
                   </div>
                 </div>
               </div>
@@ -519,7 +531,9 @@ export default function HomePage() {
                     <p className="text-gray-600">
                       +263 778 179 409
                       <br />
-                      +263 717 166 022
+                      +263 717 166 002
+                      <br />
+                      +263 781 413 309
                     </p>
                   </div>
                 </div>
