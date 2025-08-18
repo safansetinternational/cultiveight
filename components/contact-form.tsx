@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef , useActionState } from "react";
 import { useFormState, useFormStatus } from "react-dom";  
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,15 +13,21 @@ import { submitContactForm, type ContactFormState } from "@/app/actions/contact"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Link from 'next/link';
 
-const initialState: ContactFormState = {
-  message: null,
-  errors: null,
-  success: false,
+// const initialState: ContactFormState = {
+//   message: null,
+//   errors: null,
+//   success: false,
+// };
+
+const initialState = {
+  message: '',
 };
 
-
+// async function submitContactForm(prevState: any, formData: FormData) {
+//   // Your form submission logic here
+// }
 export default function ContactForm() {
-  const [state] = useFormState(submitContactForm, initialState);
+  const [state] = useActionState(submitContactForm, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { pending } = useFormStatus();
 
