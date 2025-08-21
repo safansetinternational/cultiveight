@@ -91,12 +91,12 @@ export default function ContactForm() {
                     </label>
                     <Textarea id="message" placeholder="Tell us how we can help you..." rows={5} />
                   </div>
-                  {/* <a href="mailto:info@cultiveight.co.zw">
+                  {/* <a href="mailto:info@cultiveightint.com">
                   <Button type="submit" className="w-full">
                     Send Message
                   </Button>
                   </a> */}
-                   <Link href="mailto:info@cultiveight.co.zw">
+                   <Link href="mailto:info@cultiveightint.com">
                    <Button type="submit" className="w-full">
                     Send Message
                   </Button>

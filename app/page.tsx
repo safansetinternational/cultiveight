@@ -541,14 +541,14 @@ export default function HomePage() {
                   <Mail className="h-5 w-5 text-green-600 mt-1" />
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <p className="text-gray-600">info@cultiveight.co.zw</p>
+                    <p className="text-gray-600">info@cultiveightint.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Globe className="h-5 w-5 text-green-600 mt-1" />
                   <div>
                     <h4 className="font-semibold">Website</h4>
-                    <p className="text-gray-600">www.cultiveight.co.zw</p>
+                    <p className="text-gray-600">www.cultiveightint.com</p>
                   </div>
                 </div>
               </CardContent>
@@ -641,7 +641,7 @@ export default function HomePage() {
                 <li>No. 1 Lancaster Avenue</li>
                 <li>Belvedere, Harare</li>
                 <li>+263 778 179 409</li>
-                <li>info@cultiveight.co.zw</li>
+                <li>info@cultiveightint.com</li>
               </ul>
             </div>
           </div>
