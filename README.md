@@ -1,2 +1,3 @@
 welcome to cultiveight home of Agric
-its live now and now working on the emails
+its live now
+and its the best
